@@ -21520,8 +21520,8 @@ module.exports = {"allSkiDays":[{"resort":"Kirkwood","date":"2016-12-7","powder"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_isomorphic_fetch__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_isomorphic_fetch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__server_resort_names_json__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__server_resort_names_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__server_resort_names_json__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__resort_names_json__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__resort_names_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__resort_names_json__);
 
 
 
@@ -21530,28 +21530,28 @@ module.exports = {"allSkiDays":[{"resort":"Kirkwood","date":"2016-12-7","powder"
 
 
 var consoleMessages = function consoleMessages(store) {
-  return function (next) {
-    return function (action) {
+	return function (next) {
+		return function (action) {
 
-      var result = void 0;
+			var result = void 0;
 
-      console.groupCollapsed('dispatching action => ' + action.type);
-      console.log('ski days', store.getState().allSkiDays.length);
-      result = next(action);
+			console.groupCollapsed('dispatching action => ' + action.type);
+			console.log('ski days', store.getState().allSkiDays.length);
+			result = next(action);
 
-      var _store$getState = store.getState(),
-          allSkiDays = _store$getState.allSkiDays,
-          goal = _store$getState.goal,
-          errors = _store$getState.errors,
-          resortNames = _store$getState.resortNames;
+			var _store$getState = store.getState(),
+			    allSkiDays = _store$getState.allSkiDays,
+			    goal = _store$getState.goal,
+			    errors = _store$getState.errors,
+			    resortNames = _store$getState.resortNames;
 
-      console.log('\n\n\t\tski days: ' + allSkiDays.length + '\n\t\tgoal: ' + goal + '\n\t\tfetching: ' + resortNames.fetching + '\n\t\tsuggestions: ' + resortNames.suggestions + '\n\t\terrors: ' + errors.length + '\n\n\t');
+			console.log('\n\n\t\tski days: ' + allSkiDays.length + '\n\t\tgoal: ' + goal + '\n\t\tfetching: ' + resortNames.fetching + '\n\t\tsuggestions: ' + resortNames.suggestions + '\n\t\terrors: ' + errors.length + '\n\n\t');
 
-      console.groupEnd();
+			console.groupEnd();
 
-      return result;
-    };
-  };
+			return result;
+		};
+	};
 };
 
 /*export const resortNames = store => next => action => {
@@ -21575,9 +21575,9 @@ var consoleMessages = function consoleMessages(store) {
 }*/
 
 /* harmony default export */ __webpack_exports__["a"] = (function () {
-  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-  return Object(__WEBPACK_IMPORTED_MODULE_2_redux__["d" /* createStore */])(__WEBPACK_IMPORTED_MODULE_1__reducers__["a" /* default */], initialState, Object(__WEBPACK_IMPORTED_MODULE_2_redux__["a" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_3_redux_thunk___default.a, consoleMessages, resortNames));
+	return Object(__WEBPACK_IMPORTED_MODULE_2_redux__["d" /* createStore */])(__WEBPACK_IMPORTED_MODULE_1__reducers__["a" /* default */], initialState, Object(__WEBPACK_IMPORTED_MODULE_2_redux__["a" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_3_redux_thunk___default.a, consoleMessages, resortNames));
 });
 
 /*export default (initialState={}) => {
@@ -21588,24 +21588,23 @@ var consoleMessages = function consoleMessages(store) {
 
 
 var resortNames = function resortNames(store) {
-  return function (next) {
-    return function (action) {
+	return function (next) {
+		return function (action) {
 
-      switch (action.type) {
-        case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].SUGGEST_RESORT_NAMES:
-          store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["h" /* fetchResortNames */])());
+			switch (action.type) {
+				case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].SUGGEST_RESORT_NAMES:
+					store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["h" /* fetchResortNames */])());
 
-          console.log('names:', __WEBPACK_IMPORTED_MODULE_6__server_resort_names_json___default.a.toString());
+					var suggestions = __WEBPACK_IMPORTED_MODULE_6__resort_names_json___default.a.toString().split(",").filter(function (name) {
+						return name.toLowerCase().startsWith(action.payload.toLowerCase());
+					});
 
-          var suggestions = __WEBPACK_IMPORTED_MODULE_6__server_resort_names_json___default.a.toString().split(",").filter(function (name) {
-            return name.toLowerCase().startsWith(action.payload.toLowerCase());
-          });
-          if (suggestions) store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["d" /* changeSuggestions */])(suggestions));else store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["c" /* cancelFetching */])());
-      }
+					if (suggestions) store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["d" /* changeSuggestions */])(suggestions));else store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["c" /* cancelFetching */])());
+			}
 
-      return next(action);
-    };
-  };
+			return next(action);
+		};
+	};
 };
 
 /***/ }),
