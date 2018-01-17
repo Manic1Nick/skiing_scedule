@@ -1,0 +1,46 @@
+{
+  "name": "scedule_winter",
+  "version": "1.0.0",
+  "description": "Example of winter scedule",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server",
+    "suggestions": "./node_modules/.bin/babel-node ./server --port 3333 --delay 500"
+  },
+  "author": "N.Korkodym",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "isomorphic-fetch": "^2.2.1",
+    "minimist": "^1.2.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-icons": "^2.2.7",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.8",
+    "expect": "^22.0.3",
+    "json-loader": "^0.5.7",
+    "key-mirror": "^1.0.1",
+    "node-sass": "^4.7.2",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "postcss-load-config": "^1.2.0",
+    "postcss-loader": "^2.0.10",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  }
+}
