@@ -27705,7 +27705,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "html,\nbody,\ndiv#react-container,\ndiv.app {\n  height: 100%;\n  padding: 0;\n  margin: 0; }\n\nbody {\n  font-size: 55%; }\n\nh1, label {\n  margin: 0; }\n\ndiv.app {\n  background-image: url(\"./img/rowdy.jpg\");\n  background-size: cover;\n  background-position: center; }\n\ndiv.whoops-404 {\n  background-color: white;\n  font-size: 2em;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap; }\n", ""]);
+exports.push([module.i, "html,\nbody,\ndiv#react-container,\ndiv.app {\n  height: 100%;\n  padding: 0;\n  margin: 0; }\n\nbody {\n  font-size: 55%; }\n\nh1, label {\n  margin: 0; }\n\ndiv.app {\n  background-image: url(\"img/rowdy.jpg\");\n  background-size: cover;\n  background-position: center; }\n\ndiv.whoops-404 {\n  background-color: white;\n  font-size: 2em;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap; }\n", ""]);
 
 // exports
 
