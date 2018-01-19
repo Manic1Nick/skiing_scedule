@@ -9,6 +9,11 @@ div.app {
   margin: 0;
 }
 
+div#react-container {
+  max-width: 500px;
+  margin: auto;
+}
+
 body {
   font-size: 55%;
 }

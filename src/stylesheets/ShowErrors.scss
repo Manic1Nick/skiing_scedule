@@ -3,11 +3,13 @@
 div.show-errors {
 
   width: 100%;
+  //max-width: calc(500px - 3em);
   font-size: 1.5em;
 
   div {
     position: absolute;
     width: 100%;
+    max-width: 500px;
     text-align: center;
     top: 0;
     background-color: red;

@@ -5,6 +5,7 @@ import reduxThunk from 'redux-thunk'
 import fetch from 'isomorphic-fetch'
 import { fetchResortNames, changeSuggestions, addError, cancelFetching } from '../actions'
 
+
 const consoleMessages = store => next => action => {
 
 	let result
@@ -50,6 +51,7 @@ export const resortNames = store => next => action => {
     return next(action)
 }
 
+
 export default (initialState={}) => {
 	return createStore(
 		appReducer, 
@@ -61,3 +63,23 @@ export default (initialState={}) => {
 /*export default (initialState={}) => {
 	return applyMiddleware(reduxThunk, consoleMessages, resortNames)(createStore)(appReducer, initialState)
 }*/
+
+/* //for run app on git gh-pages
+
+import names from '../../resort-names.json'
+export const resortNames = store => next => action => {
+
+	switch(action.type) {
+    	case C.SUGGEST_RESORT_NAMES :
+    		store.dispatch(fetchResortNames())
+
+    		let suggestions = names.toString().split(",")
+    			.filter(name => name.toLowerCase().startsWith(action.payload.toLowerCase()))
+
+    		if (suggestions) store.dispatch(changeSuggestions(suggestions))
+    		else store.dispatch(cancelFetching())
+  	}
+
+    return next(action)
+}
+*/

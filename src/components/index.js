@@ -14,8 +14,8 @@ export const App = () =>
         <Switch>
             <Route exact path="/" component={SkiDayCount} />
             <Route exact path="/add-day" component={AddDayForm} />
-            <Route path='/list-days' component={SkiDayListContainer}/>
-            <Route path="/*" component={Whoops404}/> 
+            <Route path='/list-days' component={SkiDayListContainer} />
+            <Route path="/*" component={Whoops404} /> 
         </Switch>
         <GoalProgress />
         <Menu />
@@ -29,6 +29,6 @@ const Whoops404 = ({ location }) =>
 
 const SkiDayListContainer = () => 
     <Switch>
-        <Route exact path='/list-days' component={SkiDayList}/>
-        <Route path='/list-days/:filter' component={SkiDayList}/>        
+        <Route exact path='/list-days' component={SkiDayList} />
+        <Route path='/list-days/:filter' component={SkiDayList} />        
     </Switch>
