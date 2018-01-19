@@ -21530,28 +21530,28 @@ module.exports = {"allSkiDays":[{"resort":"Kirkwood","date":"2016-12-7","powder"
 
 
 var consoleMessages = function consoleMessages(store) {
-	return function (next) {
-		return function (action) {
+  return function (next) {
+    return function (action) {
 
-			var result = void 0;
+      var result = void 0;
 
-			console.groupCollapsed('dispatching action => ' + action.type);
-			console.log('ski days', store.getState().allSkiDays.length);
-			result = next(action);
+      console.groupCollapsed('dispatching action => ' + action.type);
+      console.log('ski days', store.getState().allSkiDays.length);
+      result = next(action);
 
-			var _store$getState = store.getState(),
-			    allSkiDays = _store$getState.allSkiDays,
-			    goal = _store$getState.goal,
-			    errors = _store$getState.errors,
-			    resortNames = _store$getState.resortNames;
+      var _store$getState = store.getState(),
+          allSkiDays = _store$getState.allSkiDays,
+          goal = _store$getState.goal,
+          errors = _store$getState.errors,
+          resortNames = _store$getState.resortNames;
 
-			console.log('\n\n\t\tski days: ' + allSkiDays.length + '\n\t\tgoal: ' + goal + '\n\t\tfetching: ' + resortNames.fetching + '\n\t\tsuggestions: ' + resortNames.suggestions + '\n\t\terrors: ' + errors.length + '\n\n\t');
+      console.log('\n\n\t\tski days: ' + allSkiDays.length + '\n\t\tgoal: ' + goal + '\n\t\tfetching: ' + resortNames.fetching + '\n\t\tsuggestions: ' + resortNames.suggestions + '\n\t\terrors: ' + errors.length + '\n\n\t');
 
-			console.groupEnd();
+      console.groupEnd();
 
-			return result;
-		};
-	};
+      return result;
+    };
+  };
 };
 
 /*export const resortNames = store => next => action => {
@@ -21575,36 +21575,36 @@ var consoleMessages = function consoleMessages(store) {
 }*/
 
 /* harmony default export */ __webpack_exports__["a"] = (function () {
-	var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-	return Object(__WEBPACK_IMPORTED_MODULE_2_redux__["d" /* createStore */])(__WEBPACK_IMPORTED_MODULE_1__reducers__["a" /* default */], initialState, Object(__WEBPACK_IMPORTED_MODULE_2_redux__["a" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_3_redux_thunk___default.a, consoleMessages, resortNames));
+  return Object(__WEBPACK_IMPORTED_MODULE_2_redux__["d" /* createStore */])(__WEBPACK_IMPORTED_MODULE_1__reducers__["a" /* default */], initialState, Object(__WEBPACK_IMPORTED_MODULE_2_redux__["a" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_3_redux_thunk___default.a, consoleMessages, resortNames));
 });
 
 /*export default (initialState={}) => {
 	return applyMiddleware(reduxThunk, consoleMessages, resortNames)(createStore)(appReducer, initialState)
 }*/
 
-/* for run app on git gh-pages */
+//for run app on git gh-pages
 
 
 var resortNames = function resortNames(store) {
-	return function (next) {
-		return function (action) {
+  return function (next) {
+    return function (action) {
 
-			switch (action.type) {
-				case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].SUGGEST_RESORT_NAMES:
-					store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["h" /* fetchResortNames */])());
+      switch (action.type) {
+        case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].SUGGEST_RESORT_NAMES:
+          store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["h" /* fetchResortNames */])());
 
-					var suggestions = __WEBPACK_IMPORTED_MODULE_6__resort_names_json___default.a.toString().split(",").filter(function (name) {
-						return name.toLowerCase().startsWith(action.payload.toLowerCase());
-					});
+          var suggestions = __WEBPACK_IMPORTED_MODULE_6__resort_names_json___default.a.toString().split(",").filter(function (name) {
+            return name.toLowerCase().startsWith(action.payload.toLowerCase());
+          });
 
-					if (suggestions) store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["d" /* changeSuggestions */])(suggestions));else store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["c" /* cancelFetching */])());
-			}
+          if (suggestions) store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["d" /* changeSuggestions */])(suggestions));else store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions__["c" /* cancelFetching */])());
+      }
 
-			return next(action);
-		};
-	};
+      return next(action);
+    };
+  };
 };
 
 /***/ }),
@@ -27234,7 +27234,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "nav.menu {\n  background-color: black;\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: calc(100% - 1em);\n  font-size: 4em;\n  padding: .5em;\n  display: flex;\n  justify-content: space-around; }\n  nav.menu a {\n    color: #d3d5e3; }\n", ""]);
+exports.push([module.i, "nav.menu {\n  background-color: black;\n  position: fixed;\n  bottom: 0;\n  width: calc(100% - 1em);\n  max-width: calc(500px - 1em);\n  font-size: 4em;\n  padding: .5em;\n  display: flex;\n  justify-content: space-around; }\n  nav.menu a {\n    color: #d3d5e3; }\n", ""]);
 
 // exports
 
@@ -27505,7 +27505,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "div.show-errors {\n  width: 100%;\n  font-size: 1.5em; }\n  div.show-errors div {\n    position: absolute;\n    width: 100%;\n    text-align: center;\n    top: 0;\n    background-color: red;\n    color: white;\n    font-family: verdana, sans-serif;\n    display: flex;\n    justify-content: space-between;\n    align-items: center; }\n    div.show-errors div p {\n      margin-left: 1em; }\n    div.show-errors div svg {\n      font-size: 2em; }\n", ""]);
+exports.push([module.i, "div.show-errors {\n  width: 100%;\n  font-size: 1.5em; }\n  div.show-errors div {\n    position: absolute;\n    width: 100%;\n    max-width: 500px;\n    text-align: center;\n    top: 0;\n    background-color: red;\n    color: white;\n    font-family: verdana, sans-serif;\n    display: flex;\n    justify-content: space-between;\n    align-items: center; }\n    div.show-errors div p {\n      margin-left: 1em; }\n    div.show-errors div svg {\n      font-size: 2em; }\n", ""]);
 
 // exports
 
@@ -27660,7 +27660,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "div.goal-progress {\n  width: 95%;\n  margin: 0 2.5%;\n  font-size: 3em;\n  position: absolute;\n  bottom: 3em;\n  display: flex;\n  align-items: center;\n  font-family: verdana;\n  justify-content: space-between;\n  text-shadow: 2px 2px 10px #d3d5e3; }\n  div.goal-progress progress {\n    flex-basis: 66%;\n    background-color: black;\n    height: .5em; }\n  div.goal-progress input {\n    background: none;\n    border: none;\n    position: relative;\n    width: 1.7em;\n    font-size: 1em;\n    padding: 0;\n    left: 9px;\n    outline: none;\n    text-shadow: 2px 2px 10px #d3d5e3; }\n\nprogress::-webkit-progress-bar {\n  background-color: black; }\n\nprogress::-webkit-progress-value {\n  background-color: #8a2a2d; }\n\n@-moz-document url-prefix() {\n  progress {\n    display: none; } }\n", ""]);
+exports.push([module.i, "div.goal-progress {\n  width: 95%;\n  max-width: calc(500px - 1em);\n  margin: 0 10px;\n  font-size: 3em;\n  position: absolute;\n  bottom: 3em;\n  display: flex;\n  align-items: center;\n  font-family: verdana;\n  justify-content: space-between;\n  text-shadow: 2px 2px 10px #d3d5e3; }\n  div.goal-progress progress {\n    flex-basis: 66%;\n    background-color: black;\n    height: .5em; }\n  div.goal-progress input {\n    background: none;\n    border: none;\n    position: relative;\n    width: 1.7em;\n    font-size: 1em;\n    padding: 0;\n    left: 9px;\n    outline: none;\n    text-shadow: 2px 2px 10px #d3d5e3; }\n\nprogress::-webkit-progress-bar {\n  background-color: black; }\n\nprogress::-webkit-progress-value {\n  background-color: #8a2a2d; }\n\n@-moz-document url-prefix() {\n  progress {\n    display: none; } }\n", ""]);
 
 // exports
 
@@ -27705,7 +27705,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "html,\nbody,\ndiv#react-container,\ndiv.app {\n  height: 100%;\n  padding: 0;\n  margin: 0; }\n\nbody {\n  font-size: 55%; }\n\nh1, label {\n  margin: 0; }\n\ndiv.app {\n  background-image: url(\"img/rowdy.jpg\");\n  background-size: cover;\n  background-position: center; }\n\ndiv.whoops-404 {\n  background-color: white;\n  font-size: 2em;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap; }\n", ""]);
+exports.push([module.i, "html,\nbody,\ndiv#react-container,\ndiv.app {\n  height: 100%;\n  padding: 0;\n  margin: 0; }\n\ndiv#react-container {\n  max-width: 500px;\n  margin: auto; }\n\nbody {\n  font-size: 55%; }\n\nh1, label {\n  margin: 0; }\n\ndiv.app {\n  background-image: url(\"img/rowdy.jpg\");\n  background-size: cover;\n  background-position: center; }\n\ndiv.whoops-404 {\n  background-color: white;\n  font-size: 2em;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap; }\n", ""]);
 
 // exports
 
